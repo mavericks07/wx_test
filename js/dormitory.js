@@ -65,9 +65,9 @@ $(function(){
     })
 
     //故障项目弹出层中小项列表滚动效果
-    scrollItem();
+    //scrollItem();
 
-    imageLoad('#imageLoad');
+    //imageLoad('#imageLoad');
 
     $('.swiper-container2').on('click','.orders',function(){
 
