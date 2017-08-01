@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>订单详情</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="../css/weui.css">
+    <link rel="stylesheet" href="../css/animate.css">
+    <link rel="stylesheet" href="../css/swiper.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/dormitory.css">
+    <style>
+        .pubrepaireRate .rightBox{
+            position: relative;
+            overflow: hidden;
+            padding-left: 1.2rem;
+        }
+        .rightBox .avatar{
+            position: absolute;
+                left: 0.2rem;
+                top: 0.25rem;
+                width: 0.8rem;
+        }
+    </style>
+</head>
+<body class="bgc-f7">
+<div class="bgc-f7 font-30">
+    <div class="pd-15  bgc-fff border-b">
+        <div class="border-b font-36 lh-80 relative">
+            <img src="../images/icon/icon_admin.png" alt="" width="30" style="vertical-align: middle;">
+            <span>郭晓晓</span>
+        </div>
+        <div class="mt-15">
+            <span class="mr-15 fc-999">报修单号:</span><span id="real_name">SS301</span>
+        </div>
+        <div>
+            <span class="mr-15 fc-999">报修时间:</span><span id="real_name">2017-08-26</span>
+        </div>
+        <div>
+            <span class="mr-15 fc-999">报修区域:</span><span id="real_name">厂区报修</span>
+        </div>
+        <div>
+            <span class="mr-15 fc-999">报修项目:</span><span id="job_number">电/水</span>
+        </div>
+        <div>
+            <span class="mr-15 fc-999">报修人员:</span><span id="phone">李小龙</span>
+        </div>
+        <div>
+            <span class="mr-15 fc-999">联系电话:</span><span id="">13512846951</span>
+        </div>
+        <div>
+            <span class="mr-15 fc-999">故障地址:</span><span id="">南沙区1号</span>
+        </div>
+    </div>
+    <div class="pd-15">
+        <div class="clearfix pubrepaireRate mt-15">
+            <div class="fl pd-10"><i class="weui-icon-success"></i></div>
+            <div class="border bgc-fff pd-20 radius w-110p rightBox">
+                <img src="../images/icon/icon_admin.png" alt="" class="avatar">
+                <div class="clearfix">
+                    <span>我</span>
+                    <span class="fr fc-999">2017-08-26 13:00</span>
+                </div>
+                <div class="fc-00CCC1">发起报修</div>
+            </div>
+        </div>
+        <div class="clearfix pubrepaireRate mt-15">
+            <div class="fl pd-10"><i class="weui-icon-success"></i></div>
+            <div class="border bgc-fff pd-20 radius w-110p rightBox">
+                <img src="../images/icon/icon_admin.png" alt="" class="avatar">
+                <div class="clearfix">
+                    <span>我</span>
+                    <span class="fr fc-999">2017-08-26 13:00</span>
+                </div>
+                <div class="fc-00CCC1">发起报修</div>
+                <div class="">原因：情况属实</div>
+            </div>
+        </div>
+    </div>
+    <div class="incomment pd-15">
+        <div>
+            <span class="mr-15 font-36">评分</span>
+            <span class="fc-ffa16a" id="inScore">5.0</span>
+        </div>
+        <div class="text-c pd-15 inscores">
+           <img src="../images/icon/icon_star_fill.png" alt="" class="star">
+           <img src="../images/icon/icon_star_fill.png" alt="" class="star">
+           <img src="../images/icon/icon_star_fill.png" alt="" class="star">
+           <img src="../images/icon/icon_star_fill.png" alt="" class="star">
+           <img src="../images/icon/icon_star_fill.png" alt="" class="star">
+        </div>
+        <div class="tags clearfix mt-25">
+            <span class="selected">上门及时</span>
+            <span class="selected">工作认真</span>
+            <span class="selected">维修及时</span>
+        </div>
+        <div class="pd-15 pr-30 pl-30">
+            这个师傅人很好,技术一流
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script src="../js/jquery.js"></script>
+<script src="../js/global.js"></script>
+<script type="text/javascript">
+$(function(){
+    // $('page').scroll(function(){
+    //     console.log(1)
+    // })
+    $('.inscores').on('click','.star',function(event){
+        var starNum = $(this).index() + 1;
+        $('.star').attr({'src': '../images/icon/icon_star.png'});
+        var stars = $('.star');
+        $.each(stars,function(index,item){
+            if(index < starNum){
+                $(item).attr({'src': '../images/icon/icon_star_fill.png'});
+            }
+        });
+        $('#inScore').html(starNum+'.0')
+    });
+
+    $('.tags').on('click','span',function(){
+        $(this).toggleClass('selected');
+    })
+    $('.weui-btn').click(function(){
+        $.toast("提交成功");
+    })
+    // $('.goback').click(function(){
+    //     window.history.back(-1);
+    // });
+})
+</script>

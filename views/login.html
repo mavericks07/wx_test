@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>pinba_wx</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="../css/weui.css">
+    <link rel="stylesheet" href="../css/animate.css">
+    <link rel="stylesheet" href="../css/swiper.css">
+    <link rel="stylesheet" href="../css/base.css">
+</head>
+<body>
+    <form action="">
+        <div>
+            <label for="">手机：</label>
+            <input type="text" class="weui-input weui-prompt-input">
+        </div>
+        <div>
+            <label for="">密码：</label>
+            <input type="text" class="weui-input weui-prompt-input">
+        </div>
+        <div class="mt-15">
+            <a href="javascript:;" class="weui-btn weui-btn_primary" onclick="login()">确认</a>
+        </div>
+    </form>
+</body>
+</html>
+<script src="../js/jquery.js"></script>
+<!-- <script src="../js/jquery-weui.min.js"></script> -->
+<script src="../js/swiper.min.js"></script>
+<script src="../js/global.js"></script>
+<script type="text/javascript">
+    function login() {
+        let ajaxData={
+            phone:'15603063469',
+            udid: '15603063469',
+            password: '123123',
+            jpush_reg_id: '15603063469',
+        }
+        $.ajax({
+            type: "POST",
+            url: "http://175049f64k.51mypc.cn/api/v1/staff/auths/login/",
+            data: ajaxData,
+            success: function (result) {
+                let loginToken = result.token;
+                //记录token
+                localStorage.token = loginToken;
+                $.ajaxSetup({
+                    beforeSend:function (xhr) {
+                        xhr.setRequestHeader("authorization", loginToken);
+                    },
+                });
+                getList();
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                console.log("error");
+                console.log(XMLHttpRequest.status);
+                console.log(XMLHttpRequest.readyState);
+                console.log(textStatus);
+            }
+        });
+    }
+    function getList(){
+        $.ajax({
+            type: "GET",
+            url: "http://175049f64k.51mypc.cn/api/v1/staff/faultitems/",
+            //data: ajaxData,
+            success: function (result) {
+                console.log(result)
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                console.log("error");
+                console.log(XMLHttpRequest.status);
+                console.log(XMLHttpRequest.readyState);
+                console.log(textStatus);
+            }
+        });
+    }
+</script>

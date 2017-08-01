@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>订水</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="../css/weui.css">
+    <link rel="stylesheet" href="../css/animate.css">
+    <link rel="stylesheet" href="../css/swiper.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/dormitory.css">
+    <style type="text/css">
+        .longstay{
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+
+<div class="weui-tab">
+    <!-- <div class="weui-tab-container pb-100"> -->
+    <div class="weui-tab-container">
+        <div class="weui-tab-item weui-tab-item-active longstay" id="tab1">
+            <div class="weui-cells">
+                <div class="weui-cell bgc-f5">
+                    <div class="weui-cell__hd"></div>
+                    <div class="weui-cell__bd">
+                        <p>住宿申请</p>
+                    </div>
+                    <div class="weui-cell__ft pr-25"></div>
+                </div>
+                <div class="pd-15 fw-b">
+                    <p>陈晓浩</p>
+                    <p>职位: 研发一部 python开发工程师</p>
+                    <p>工号：xs4456577</p>
+                </div>
+                <div class="weui-cell">
+                    <div class="weui-cell__hd"><img src="../images/icon/icon_longstay_phone.png"></div>
+                    <div class="weui-cell__bd">联系电话:</div>
+                    <div class="weui-cell__ft" id="job_number"><input type="text" class="weui-input text-r" placeholder="请输入联系电话" value="15065841297" maxlength="11"></div>
+                </div>
+                <div class="weui-cell">
+                    <div class="weui-cell__hd"><img src="../images/icon/icon_longstay_id.png"></div>
+                    <div class="weui-cell__bd">身份证号:</div>
+                    <div class="weui-cell__ft" id="job_number"><input type="text" class="weui-input text-r" placeholder="请输入身份证号码" value="441230000000000000" maxlength="18"></div>
+                </div>
+                <div class="weui-cell">
+                    <div class="weui-cell__hd"><img src="../images/icon/icon_longstay_reason.png"></div>
+                    <div class="weui-cell__bd">申请原因:</div>
+                    <div class="weui-cell__ft "></div>
+                </div>
+                <div class="pd-15">
+                    <textarea class="weui-textarea border radius pd-10" placeholder="请填写申请原因(字数最多100字)" rows="3" maxlength="100" value="住的远"></textarea>
+                </div>
+                <div class="weui-cell">
+                    <div class="weui-cell__hd"><img src="../images/icon/icon_longstay_apply.png"></div>
+                    <div class="weui-cell__bd">备注:</div>
+                    <div class="weui-cell__ft "></div>
+                </div>
+                <div class="pd-15">
+                    <textarea class="weui-textarea border radius pd-10" placeholder="请填写备注内容(字数最多100字)" rows="3"></textarea>
+                </div>
+                <div class="weui-cell weui-cell_access">
+                    <div class="weui-cell__hd"><img src="../images/icon/icon_longstay_roomtype.png"></div>
+                    <div class="weui-cell__bd">房间类型:</div>
+                    <div class="weui-cell__ft" id="selectRoomTyle">请选择房间类型</div>
+                </div>
+                <div class="weui-cell weui-cell_access">
+                    <div class="weui-cell__hd"><img src="../images/icon/icon_longstay_approve.png"></div>
+                    <div class="weui-cell__bd">审批人:</div>
+                    <div class="weui-cell__ft" id="selectApprovers">请选择审批人</div>
+                </div>
+            </div>
+            <div class="bgc-f5 h-15"></div>
+            <div class="font-30 pd-15 mt-15">
+                <div class="font-36 fw-b">温馨提示:</div>
+                <div>如果您申请的是双人间，请把您室友信息在备注中一并发给管理员。扣费情况：单人间=外租房补助+核心住房补助+水电实际用量费用(7岗)双人间=外租房补助+水电实际用量费用(6岗及6岗以下)冷热水均为4.5一吨</div>
+            </div>
+            <div class="save"><a href="javascript:;" class="weui-btn weui-btn_normal">提交申请</a></div>
+        </div>
+        <div class="weui-tab-item " id="tab2">
+        </div>
+    </div>
+    <!-- 底部菜单栏 -->
+    <!-- <div class="weui-tabbar">
+        <a href="javascript:;" rel-link="tab1" class="weui-tabbar__item weui-bar__item_on">
+            <div class="weui-tabbar__icon">
+                <img src="../images/icon/icon_water_on.png" alt="" class="icon-on">
+                <img src="../images/icon/icon_water.png" alt="">
+            </div>
+            <p class="weui-tabbar__label">定水</p>
+        </a>
+        <a href="javascript:;" rel-link="tab2" class="weui-tabbar__item">
+            <div class="weui-tabbar__icon">
+                <img src="../images/icon/icon_record_on.png" alt="" class="icon-on">
+                <img src="../images/icon/icon_record.png" alt="">
+            </div>
+            <p class="weui-tabbar__label">报修记录</p>
+        </a>
+    </div> -->
+</div>
+</body>
+</html>
+<script src="../js/jquery.js"></script>
+<script src="../js/swiper.min.js"></script>
+<script src="../js/global.js"></script>
+<!-- <script src="../js/dormitory.js"></script> -->
+<script type="text/javascript">
+    //底部菜单栏切换
+    $('.weui-tabbar').on('click','.weui-tabbar__item',function(){
+        $('.weui-tabbar__item').removeClass('weui-bar__item_on');
+        $(this).addClass('weui-bar__item_on');
+        var tabId = $(this).attr('rel-link');
+        $('.weui-tab-item').removeClass('weui-tab-item-active')
+        $(`#${tabId}`).addClass('weui-tab-item-active');
+        // if(tabId == 'tab2'){
+        //     getOrdersList(0,function(){
+        //         $('.isLoading').hide();
+        //     });
+        // }
+    })
+    //
+    $('#selectRoomTyle').click(function(){
+        $.actions({
+            type: 'radio',
+            actions: [
+                {
+                    text: "双人间",
+                    onClick: function() {
+                        $('#selectRoomTyle').html("双人间")
+                    }
+                },
+                {
+                    text: "单人间",
+                    onClick: function() {
+                        $('#selectRoomTyle').html("单人间")
+                    }
+                },
+                {
+                    text: "六人间",
+                    onClick: function() {
+                        $('#selectRoomTyle').html("六人间")
+                    }
+                }
+            ]
+        });
+    })
+    $('#selectApprovers').click(function(){
+        $.actions({
+            type: 'radio',
+            actions: [
+                {
+                    text: "项羽",
+                    onClick: function() {
+                        $('#selectApprovers').html("项羽")
+                    }
+                },
+                {
+                    text: "诸葛亮",
+                    onClick: function() {
+                        $('#selectApprovers').html("诸葛亮")
+                    }
+                },
+                {
+                    text: "钟馗",
+                    onClick: function() {
+                        $('#selectApprovers').html("钟馗")
+                    }
+                },
+                {
+                    text: "大乔",
+                    onClick: function() {
+                        $('#selectApprovers').html("大乔")
+                    }
+                },
+                {
+                    text: "小乔",
+                    onClick: function() {
+                        $('#selectApprovers').html("小乔")
+                    }
+                },
+                {
+                    text: "鲁班七号",
+                    onClick: function() {
+                        $('#selectApprovers').html("鲁班七号")
+                    }
+                },
+                {
+                    text: "狄仁杰",
+                    onClick: function() {
+                        $('#selectApprovers').html("狄仁杰")
+                    }
+                },
+                {
+                    text: "周庄",
+                    onClick: function() {
+                        $('#selectApprovers').html("周庄")
+                    }
+                },
+                {
+                    text: "黄忠",
+                    onClick: function() {
+                        $('#selectApprovers').html("黄忠")
+                    }
+                },
+            ]
+        });
+    })
+// $('#selectApprovers').click(function(){
+//     var titleHtml = '<div class="clearfix"><span class="weui-actionsheet_cancel">取消</span><span class="weui-actionsheet_confirm">确认</span></div>';
+//     var items = [];
+//     $.each($('.selectedApprovers').find('.itemTxt'),function(index,item){
+//         items.push($(item).attr('rel-txt'));
+//     })
+//     $.actions({
+//         title: titleHtml,
+//         actions:[
+//             {
+//                 text: '<span class="itemText" rel-text="露娜">露娜</span><i class="weui-icon-success"></i>',
+//                 className: "approverItem",
+//                 onClick: function(event){
+//                     if($(event.target).hasClass('approverItem')){
+//                         $(event.target).toggleClass('selected');
+//                         getApprover($(event.target),items)
+//                     }else{
+//                         $(event.target).parent().toggleClass('selected');
+//                         getApprover($(event.target).parent(),items);
+//                     }
+//                 }
+//             },
+//             {
+//                 text: '<span class="itemText" rel-text="干将莫邪">干将莫邪</span><i class="weui-icon-success"></i>',
+//                 className: "approverItem",
+//                 onClick: function(event){
+//                     if($(event.target).hasClass('approverItem')){
+//                         $(event.target).toggleClass('selected');
+//                         getApprover($(event.target),items)
+//                     }else{
+//                         $(event.target).parent().toggleClass('selected');
+//                         getApprover($(event.target).parent(),items);
+//                     }
+//                 }
+//             },
+//             {
+//                 text: '<span class="itemText" rel-text="程咬金">程咬金</span><i class="weui-icon-success"></i>',
+//                 className: "approverItem",
+//                 onClick: function(event){
+//                     if($(event.target).hasClass('approverItem')){
+//                         $(event.target).toggleClass('selected');
+//                         getApprover($(event.target),items)
+//                     }else{
+//                         $(event.target).parent().toggleClass('selected');
+//                         getApprover($(event.target).parent(),items);
+//                     }
+//                 }
+//             },
+//             {
+//                 text: '<span class="itemText" rel-text="诸葛亮">诸葛亮</span><i class="weui-icon-success"></i>',
+//                 className: "approverItem",
+//                 onClick: function(event){
+//                     if($(event.target).hasClass('approverItem')){
+//                         $(event.target).toggleClass('selected');
+//                         getApprover($(event.target),items)
+//                     }else{
+//                         $(event.target).parent().toggleClass('selected');
+//                         getApprover($(event.target).parent(),items);
+//                     }
+//                 }
+//             },
+//             {
+//                 text: '<span class="itemText" rel-text="蔡文姬">蔡文姬</span><i class="weui-icon-success"></i>',
+//                 className: "approverItem",
+//                 onClick: function(event){
+//                     if($(event.target).hasClass('approverItem')){
+//                         $(event.target).toggleClass('selected');
+//                         getApprover($(event.target),items)
+//                     }else{
+//                         $(event.target).parent().toggleClass('selected');
+//                         getApprover($(event.target).parent(),items);
+//                     }
+//                 }
+//             },
+//             {
+//                 text: '<span class="itemText" rel-text="鲁班七号">鲁班七号</span><i class="weui-icon-success"></i>',
+//                 className: "approverItem",
+//                 onClick: function(event){
+//                     if($(event.target).hasClass('approverItem')){
+//                         $(event.target).toggleClass('selected');
+//                         getApprover($(event.target),items)
+//                     }else{
+//                         $(event.target).parent().toggleClass('selected');
+//                         getApprover($(event.target).parent(),items);
+//                     }
+//                 }
+//             },
+//             {
+//                 text: '<span class="itemText" rel-text="后裔">后裔</span><i class="weui-icon-success"></i>',
+//                 className: "approverItem",
+//                 onClick: function(event){
+//                     if($(event.target).hasClass('approverItem')){
+//                         $(event.target).toggleClass('selected');
+//                         getApprover($(event.target),items)
+//                     }else{
+//                         $(event.target).parent().toggleClass('selected');
+//                         getApprover($(event.target).parent(),items);
+//                     }
+//                 }
+//             },
+//         ],
+//         cancel: false,
+//         confirm: function(){
+//             if(items.length == 0){
+//                 $.toast("请选择审批人", "forbidden");
+//                 // $('.selectedApprovers').css({'border-top':'none'});
+//             }else{
+//                 //$('.selectedApprovers').css({'border-top':'1px solid #D9D9D9'})
+//                 $.closeActions();
+//             }
+//         }
+//     })
+//     if(items.length == 0){
+
+//     }
+// })
+$('.save').click(function(){
+    $.toast("提交成功");
+})
+</script>

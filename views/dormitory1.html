@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>pinba_wx</title>
+    <title>宿舍报修</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta name="format-detection" content="telephone=no">
@@ -16,8 +16,8 @@
 <body>
 
 <div class="weui-tab">
-    <div class="weui-tab__bd">
-        <div id="tab1" class="weui-tab__bd-item weui-tab__bd-item_active">
+    <div class="weui-tab-container pb-100">
+        <div class="weui-tab-item weui-tab-item-active" id="tab1">
             <div class="weui-cells">
                 <div class="weui-cell bgc-f5">
                     <div class="weui-cell__hd"><img src="../images/icon/icon_location.png"></div>
@@ -31,35 +31,38 @@
                     <div class="weui-cell__bd">
                         <p>姓名</p>
                     </div>
-                    <div class="weui-cell__ft pr-25">李小龙</div>
+                    <div class="weui-cell__ft pr-25" id="real_name">张晓舟</div>
                 </div>
                 <div class="weui-cell">
                     <div class="weui-cell__hd"><img src="../images/icon/icon_jobnumber.png"></div>
                     <div class="weui-cell__bd">
                         <p>工号</p>
                     </div>
-                    <div class="weui-cell__ft pr-25">123</div>
+                    <div class="weui-cell__ft pr-25" id="job_number">2017061542</div>
                 </div>
                 <div class="weui-cell weui-cell_access">
                     <div class="weui-cell__hd"><img src="../images/icon/icon_phone.png"></div>
                     <div class="weui-cell__bd">
                         <p>手机</p>
                     </div>
-                    <div class="weui-cell__ft clickPhone">13538776623</div>
+                    <div class="weui-cell__ft clickPhone" id="phone" rel-data="">15065841297</div>
                 </div>
                 <div class="weui-cell weui-cell_access">
                     <div class="weui-cell__hd"><img src="../images/icon/icon_repairs.png"></div>
                     <div class="weui-cell__bd">
                         <p>故障项目</p>
                     </div>
-                    <div class="weui-cell__ft clickFault">请选择</div>
+                    <!-- <div class="weui-cell__ft clickFault">请选择</div> -->
+                    <div class="weui-cell__ft">电/灯</div>
                 </div>
             </div>
             <div class="bgc-f5 h-15"></div>
             <form class="faultDec">
+                <input type="hidden" name="contact_phone" value="">
+                <input type="hidden" name="fault_items" value="">
                 <div>故障描述<span class="fc-ffa16a">(图片0/3)</span></div>
                 <div class="mt-15 pd-15 border">
-                    <textarea class="weui-textarea" placeholder="请输入文本" rows="3"></textarea>
+                    <textarea class="weui-textarea" placeholder="请输入文本" rows="3" name="fault_desc" value="厕所灯坏了"></textarea>
                 </div>
                 <div class="mt-15 clearfix" id="imageLoad">
                     <div class="border imgItem clearfix">
@@ -72,32 +75,33 @@
             </form>
             <div class="save"><a href="javascript:;" class="weui-btn weui-btn_normal">提交报修</a></div>
         </div>
-        <div id="tab2" class="weui-tab__bd-item">
-            <!-- <div class="weui-navbar font-30 ">
-                <div class="weui-navbar__item weui_bar__item_on">未支付</div>
-                <div class="weui-navbar__item">已支付</div>
-                <div class="weui-navbar__item">已维修</div>
-            </div> -->
-            <div class="tab font-30">
-                <a class="active" href="javascript:;">未支付</a>
-                <a href="javascript:;">已支付</a>
-                <a href="javascript:;">已维修</a>
+        <div class="weui-tab-item " id="tab2">
+            <div class="weui-navbar">
+                <a class="weui-navbar-item active" href="javascript:;">未支付</a>
+                <a class="weui-navbar-item" href="javascript:;">已支付</a>
+                <a class="weui-navbar-item" href="javascript:;">已维修</a>
             </div>
-            <div class="swiper-container">
-                <div class="refreshtip">下拉可以刷新</div>
-                <div class="swiper-wrapper w">
-                    <div class="swiper-slide d">
-                        <div class="init-loading list-group-item text-center" style="display: none;">下拉可以刷新</div>
+            <div class="swiper-container pt-100 font-30">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide orderList">
+                        <div class="init-loading list-group-item text-center">
+                            <img src="../images/icon/pull.png" alt="">
+                            <span>下拉可以刷新</span>
+                        </div>
+                        <div class="isLoading" style='display: none;'>
+                            <i class="weui-loading"></i>
+                            <span>正在刷新</span>
+                        </div>
                         <div class="swiper-container2">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide list-group">
+                            <div class="swiper-wrapper" >
+                                <div class="swiper-slide list-group" id="unpaid">
                                     <div class="orders">
                                         <div class="fc-999">报修时间:2017-8-7</div>
                                         <div class="detail">
                                             <div><span class="mr-15">报修项目:</span>电/电冰箱</div>
-                                            <div><span class="mr-15">报修人员:</span>电/电冰箱</div>
-                                            <div><span class="mr-15">联系电话:</span>电/电冰箱</div>
-                                            <div><span class="mr-15">故障地址:</span>电/电冰箱</div>
+                                            <div><span class="mr-15">报修人员:</span>张晓舟</div>
+                                            <div><span class="mr-15">联系电话:</span>2017061542</div>
+                                            <div><span class="mr-15">故障地址:</span>南沙宿舍区38栋904</div>
                                             <div class="wait">等待报价</div>
                                         </div>
                                     </div>
@@ -105,9 +109,9 @@
                                         <div class="fc-999">报修时间:2017-8-7</div>
                                         <div class="detail">
                                             <div><span class="mr-15">报修项目:</span>电/电冰箱</div>
-                                            <div><span class="mr-15">报修人员:</span>电/电冰箱</div>
-                                            <div><span class="mr-15">联系电话:</span>电/电冰箱</div>
-                                            <div><span class="mr-15">故障地址:</span>电/电冰箱</div>
+                                            <div><span class="mr-15">报修人员:</span>张晓舟</div>
+                                            <div><span class="mr-15">联系电话:</span>15065841297</div>
+                                            <div><span class="mr-15">故障地址:</span>南沙宿舍区38栋904</div>
                                             <div class="pay">
                                                 <span class="mr-15">￥100.00</span>
                                                 <img src="../images/icon/icon_bt_pay.png" alt="">
@@ -115,14 +119,25 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="swiper-slide list-group">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide orderList">
+                        <div class="init-loading list-group-item text-center" style="display: none;">下拉可以刷新</div>
+                        <div class="isLoading" style="display: none;">
+                            <i class="weui-loading"></i>
+                            <span>正在刷新</span>
+                        </div>
+                        <div class="swiper-container2">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide list-group" id="paid">
                                     <div class="orders">
                                         <div class="fc-999">报修时间:2017-8-7</div>
                                         <div class="detail">
                                             <div><span class="mr-15">报修项目:</span>电/电冰箱</div>
-                                            <div><span class="mr-15">报修人员:</span>电/电冰箱</div>
-                                            <div><span class="mr-15">联系电话:</span>电/电冰箱</div>
-                                            <div><span class="mr-15">故障地址:</span>电/电冰箱</div>
+                                            <div><span class="mr-15">报修人员:</span>张晓舟</div>
+                                            <div><span class="mr-15">联系电话:</span>15065841297</div>
+                                            <div><span class="mr-15">故障地址:</span>南沙宿舍区38栋904</div>
                                             <div class="paied">
                                                 <span class="mr-15">￥100.00</span>
                                                 <img src="../images/icon/icon_bg_paied.png" alt="">
@@ -130,17 +145,28 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="swiper-slide list-group">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide orderList">
+                        <div class="init-loading list-group-item text-center" style="display: none;">下拉可以刷新</div>
+                        <div class="isLoading" style="display: none;">
+                            <i class="weui-loading"></i>
+                            <span>正在刷新</span>
+                        </div>
+                        <div class="swiper-container2">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide list-group" id="completed">
                                     <div class="orders">
                                         <div class="fc-999">报修时间:2017-8-7</div>
                                         <div class="detail">
                                             <div class="clearfix">
-                                                <span class="mr-15">报修单号:</span>电/电冰箱
+                                                <span class="mr-15">报修单号:</span>sss501
                                                 <span class="fr"><span class="mr-15">报修共:</span><span class="fc-ffa16a">￥55</span></span>
                                             </div>
-                                            <div><span class="mr-15">维修工:</span>电/电冰箱</div>
-                                            <div><span class="mr-15">已评价:</span>电/电冰箱</div>
-                                            <div class="fc-999 text-overflow"><span class="mr-15 fc-999">其他反馈:</span>电/电冰箱电/电冰箱电/电冰箱电/电冰箱电/电冰箱电/电冰箱电/电冰箱</div>
+                                            <div><span class="mr-15">维修工:</span>周星星</div>
+                                            <div><span class="mr-15">已评价:</span>5.0</div>
+                                            <div class="fc-999 text-overflow"><span class="mr-15 fc-999">其他反馈:</span>技术很好</div>
                                         </div>
                                     </div>
                                 </div>
@@ -149,71 +175,12 @@
                     </div>
                 </div>
 
-                <div class="loadtip">上拉加载更多</div>
-                <div class="swiper-scrollbar"></div>
+                <!-- <div class="loadtip">上拉加载更多</div>
+                <div class="swiper-scrollbar"></div> -->
             </div>
-            <!-- <div class="swiper-container">
-                <div class="refreshtip">下拉刷新</div>
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="orders">
-                            <div class="fc-999">报修时间:2017-8-7</div>
-                            <div class="detail">
-                                <div><span class="mr-15">报修项目:</span>电/电冰箱</div>
-                                <div><span class="mr-15">报修人员:</span>电/电冰箱</div>
-                                <div><span class="mr-15">联系电话:</span>电/电冰箱</div>
-                                <div><span class="mr-15">故障地址:</span>电/电冰箱</div>
-                                <div class="wait">等待报价</div>
-                            </div>
-                        </div>
-                        <div class="orders">
-                            <div class="fc-999">报修时间:2017-8-7</div>
-                            <div class="detail">
-                                <div><span class="mr-15">报修项目:</span>电/电冰箱</div>
-                                <div><span class="mr-15">报修人员:</span>电/电冰箱</div>
-                                <div><span class="mr-15">联系电话:</span>电/电冰箱</div>
-                                <div><span class="mr-15">故障地址:</span>电/电冰箱</div>
-                                <div class="pay">
-                                    <span class="mr-15">￥100.00</span>
-                                    <img src="../images/icon/icon_bt_pay.png" alt="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="orders">
-                            <div class="fc-999">报修时间:2017-8-7</div>
-                            <div class="detail">
-                                <div><span class="mr-15">报修项目:</span>电/电冰箱</div>
-                                <div><span class="mr-15">报修人员:</span>电/电冰箱</div>
-                                <div><span class="mr-15">联系电话:</span>电/电冰箱</div>
-                                <div><span class="mr-15">故障地址:</span>电/电冰箱</div>
-                                <div class="paied">
-                                    <span class="mr-15">￥100.00</span>
-                                    <img src="../images/icon/icon_bg_paied.png" alt="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="orders">
-                            <div class="fc-999">报修时间:2017-8-7</div>
-                            <div class="detail">
-                                <div class="clearfix">
-                                    <span class="mr-15">报修单号:</span>电/电冰箱
-                                    <span class="fr"><span class="mr-15">报修共:</span><span class="fc-ffa16a">￥55</span></span>
-                                </div>
-                                <div><span class="mr-15">维修工:</span>电/电冰箱</div>
-                                <div><span class="mr-15">已评价:</span>电/电冰箱</div>
-                                <div class="fc-999 text-overflow"><span class="mr-15 fc-999">其他反馈:</span>电/电冰箱电/电冰箱电/电冰箱电/电冰箱电/电冰箱电/电冰箱电/电冰箱</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
         </div>
     </div>
-
+    <!-- 底部菜单栏 -->
     <div class="weui-tabbar">
         <a href="javascript:;" rel-link="tab1" class="weui-tabbar__item weui-bar__item_on">
             <div class="weui-tabbar__icon">
@@ -231,6 +198,21 @@
         </a>
     </div>
 </div>
+<!-- 故障项目弹出层 -->
+<!-- <div class="weui-layer">
+    <div class="weui-mask weui-mask--visible"></div>
+    <div class="faultitems animated fadeInUp">
+        <div class="faultitemsTitle clearfix">故障项目选择<i class="weui-icon-cancel"></i></div>
+        <div class="bgc-f5 pd-15 font-30 selectedItem">
+            <div>已选<span class="fc-999">(点击即可删除)</span>:</div>
+            <ul class="clearfix">
+            </ul>
+        </div>
+        <div class="weui-menu">
+        </div>
+    </div>
+    <div class="save"><a href="javascript:;" class="weui-btn weui-btn_normal" id="saveItem">确认选择</a></div>
+</div> -->
 <div class="weui-layer">
     <div class="weui-mask weui-mask--visible"></div>
     <div class="faultitems animated fadeInUp">

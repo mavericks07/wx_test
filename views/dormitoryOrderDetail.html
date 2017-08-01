@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>订单详情</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="../css/weui.css">
+    <link rel="stylesheet" href="../css/animate.css">
+    <link rel="stylesheet" href="../css/swiper.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/dormitory.css">
+</head>
+<body>
+<div class="bgc-f7 font-30 pb-80">
+    <div class="pd-15  bgc-fff border-b">
+        <div class="border-b font-36 lh-80 relative">
+            <span>报修单号:</span>
+            <span>ss301</span>
+            <!-- <a href="javascript:;" class="goback"><i class="weui-icon_goback"></i></a> -->
+        </div>
+        <div class="mt-15 clearfix">
+            <span class="mr-15 fc-999">报修人员:</span><span id="real_name">黄菜</span>
+            <span class="fc-ffa16a fr">共:￥100</span>
+        </div>
+        <div>
+            <span class="mr-15 fc-999">工&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号:</span><span id="job_number">15112336985</span>
+        </div>
+        <div>
+            <span class="mr-15 fc-999">联系电话:</span><span id="phone">15112336985</span>
+        </div>
+        <div>
+            <span class="mr-15 fc-999">故障地址:</span><span id="">朱村37栋A201</span>
+        </div>
+        <div>
+            <span class="mr-15 fc-999">报修项目:</span><span id="">水电</span>
+        </div>
+    </div>
+    <div class="incomment pd-15">
+        <div>
+            <span class="mr-15 font-36">评分</span>
+            <span class="fc-ffa16a" id="inScore">5.0</span>
+        </div>
+        <div class="text-c pd-15 inscores">
+           <img src="../images/icon/icon_star_fill.png" alt="" class="star">
+           <img src="../images/icon/icon_star_fill.png" alt="" class="star">
+           <img src="../images/icon/icon_star_fill.png" alt="" class="star">
+           <img src="../images/icon/icon_star_fill.png" alt="" class="star">
+           <img src="../images/icon/icon_star_fill.png" alt="" class="star">
+           <img src="../images/icon/icon_star.png" alt="" class="starFill">
+        </div>
+        <div class="tags clearfix mt-25">
+            <span>上门及时</span>
+            <span>工作认真</span>
+            <span>维修及时</span>
+            <span>态度积极</span>
+            <span>真诚友善</span>
+            <span>技术一流</span>
+        </div>
+        <div class="pd-15 pr-30 pl-30">
+            <textarea class="weui-textarea border pd-15 radius" placeholder="其他反馈~" rows="3"></textarea>
+        </div>
+    </div>
+    <!-- <div class="commentDtl pd-15 font-30">
+        <div>
+            <span class="mr-15">评价</span>
+            <span class="fc-ffa16a ">3.0</span>
+        </div>
+        <div class="text-c">
+            <img src="../images/icon/icon_star_fill.png" alt="">
+            <img src="../images/icon/icon_star_fill.png" alt="">
+            <img src="../images/icon/icon_star_fill.png" alt="">
+        </div>
+    </div> -->
+    <div class="pd-15 mt-25 bgc-fff h-100p">
+        <div class="border-b font-36 lh-80">
+            <span>报修单号</span>
+        </div>
+        <div class="orderRate">
+            <div class="rateItem clearfix">
+                <div class="time text-r pd-15 fl">2017-05-30 12:51:16</div>
+                <div class="rateTxt"><div class="bgc-f0 radius pd-15 w-100p">已提交维修</div></div>
+            </div>
+            <div class="rateItem clearfix">
+                <div class="time text-r pd-15 fl">2017-05-30 12:51:16</div>
+                <div class="rateTxt"><div class="bgc-f0 radius pd-15 w-100p">物业已派维修工上门查看报价</div></div>
+            </div>
+            <div class="rateItem clearfix">
+                <div class="time text-r pd-15 fl">2017-05-30 12:51:16</div>
+                <div class="rateTxt"><div class="bgc-f0 radius pd-15 w-100p">报价已确认，请支付￥25.4</div></div>
+            </div>
+            <div class="rateItem clearfix">
+                <div class="time text-r pd-15 fl">2017-05-30 12:51:16</div>
+                <div class="rateTxt"><div class="bgc-f0 radius pd-15 w-100p">已支付维修费用，等待维修</div></div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="botton-b">
+        <a href="javascript:;" class="weui-btn weui-btn_normal font-30">提交评分</a>
+    </div>
+</body>
+</html>
+<script src="../js/jquery.js"></script>
+<script src="../js/global.js"></script>
+<script type="text/javascript">
+$(function(){
+    // $('page').scroll(function(){
+    //     console.log(1)
+    // })
+    $('.inscores').on('click','.star',function(event){
+        var starNum = $(this).index() + 1;
+        $('.star').attr({'src': '../images/icon/icon_star.png'});
+        var stars = $('.star');
+        $.each(stars,function(index,item){
+            if(index < starNum){
+                $(item).attr({'src': '../images/icon/icon_star_fill.png'});
+            }
+        });
+        $('#inScore').html(starNum+'.0')
+    });
+
+    $('.tags').on('click','span',function(){
+        $(this).toggleClass('selected');
+    })
+    $('.weui-btn').click(function(){
+        $.toast("提交成功");
+    })
+    // $('.goback').click(function(){
+    //     window.history.back(-1);
+    // });
+})
+</script>

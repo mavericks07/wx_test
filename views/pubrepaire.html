@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>公共区域报修</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="../css/weui.css">
+    <link rel="stylesheet" href="../css/animate.css">
+    <link rel="stylesheet" href="../css/swiper.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/dormitory.css">
+    <style>
+        .weui-tab-item.weui-tab-item-active.approve{
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+
+<div class="weui-tab">
+    <div class="weui-tab-container pb-100">
+        <div class="weui-tab-item weui-tab-item-active" id="tab1">
+            <div class="text-c pd-15">
+                <a href="javascript:;" class="weui-btn weui-btn_normal select">选择报修区域</a>
+            </div>
+            <div class="weui-cells">
+                <div class="weui-cell">
+                    <div class="weui-cell__hd"><img src="../images/icon/icon_name.png"></div>
+                    <div class="weui-cell__bd">
+                        <p>姓名</p>
+                    </div>
+                    <div class="weui-cell__ft pr-25" id="real_name">张晓舟</div>
+                </div>
+                <div class="weui-cell">
+                    <div class="weui-cell__hd"><img src="../images/icon/icon_jobnumber.png"></div>
+                    <div class="weui-cell__bd">
+                        <p>工号</p>
+                    </div>
+                    <div class="weui-cell__ft pr-25" id="job_number">2017061542</div>
+                </div>
+                <div class="weui-cell weui-cell_access">
+                    <div class="weui-cell__hd"><img src="../images/icon/icon_phone.png"></div>
+                    <div class="weui-cell__bd">
+                        <p>手机</p>
+                    </div>
+                    <div class="weui-cell__ft clickPhone" id="phone" rel-data="">15065841297</div>
+                </div>
+                <div class="weui-cell weui-cell_access">
+                    <div class="weui-cell__hd"><img src="../images/icon/icon_name.png"></div>
+                    <div class="weui-cell__bd">
+                        <p>审批人</p>
+                    </div>
+                    <div class="weui-cell__ft" id="selectApprovers">请选择</div>
+                </div>
+                <div class="weui-cell weui-cell_access">
+                    <div class="weui-cell__hd"><img src="../images/icon/icon_repairs.png"></div>
+                    <div class="weui-cell__bd">
+                        <p>故障项目</p>
+                    </div>
+                    <div class="weui-cell__ft">电/灯</div>
+                </div>
+            </div>
+            <div class="bgc-f5 h-15"></div>
+            <form class="faultDec">
+                <input type="hidden" name="contact_phone" value="">
+                <input type="hidden" name="fault_items" value="">
+                <div>故障描述<span class="fc-ffa16a">(图片0/3)</span></div>
+                <div class="mt-15 pd-15 border">
+                    <textarea class="weui-textarea" placeholder="请输入文本" rows="3" name="fault_desc"></textarea>
+                </div>
+                <div class="mt-15 clearfix" id="imageLoad">
+                    <div class="border imgItem clearfix">
+                        <div class="imgInput">
+                            <label for="imgInput0"><img src="../images/icon/icon_camera.png" alt=""></label>
+                            <input id="imgInput0" type="file" accept="image/*" capture="camera">
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class="save"><a href="javascript:;" class="weui-btn weui-btn_normal">提交报修</a></div>
+        </div>
+        <div class="weui-tab-item approve orderList" id="tab2">
+            <div class="orders">
+                <div class="clearfix">
+                    <div class="fl">报修时间:2017-8-7</div>
+                    <div class="fr">报修单号:HHH343656</div>
+                </div>
+                <div class="clearfix bgc-00CCC1 fc-fff pd-10 radius">
+                    <div class="fl">厂区报修</div>
+                    <div class="fr">待我审批</div>
+                </div>
+                <div class="detail">
+                    <div><span class="mr-15">报修项目:</span>电/电冰箱</div>
+                    <div><span class="mr-15">报修人员:</span>蔡文姬</div>
+                    <div><span class="mr-15">联系电话:</span>137562314569</div>
+                    <div><span class="mr-15">故障地址:</span>南沙区23厂区</div>
+                </div>
+            </div>
+            <div class="orders">
+                <div class="clearfix">
+                    <div class="fl">报修时间:2017-8-7</div>
+                    <div class="fr">报修单号:HHH343656</div>
+                </div>
+                <div class="clearfix bgc-00CCC1 fc-fff pd-10 radius">
+                    <div class="fl">厂区报修</div>
+                    <div class="fr">待我审批</div>
+                </div>
+                <div class="detail">
+                    <div><span class="mr-15">报修项目:</span>电/电冰箱</div>
+                    <div><span class="mr-15">报修人员:</span>蔡文姬</div>
+                    <div><span class="mr-15">联系电话:</span>137562314569</div>
+                    <div><span class="mr-15">故障地址:</span>南沙区23厂区</div>
+                    <div class="paied">
+                        <a href="javascript:;" class="weui-btn weui-btn_normal">维修完成</a>
+                    </div>
+                </div>
+            </div>
+            <div class="orders">
+                <div class="clearfix">
+                    <div class="fl">报修时间:2017-8-7</div>
+                    <div class="fr">报修单号:HHH343656</div>
+                </div>
+                <div class="clearfix bgc-a9 fc-fff pd-10 radius">
+                    <div class="fl">厂区报修</div>
+                    <div class="fr">同意</div>
+                </div>
+                <div class="detail">
+                    <div><span class="mr-15">报修项目:</span>电/电冰箱</div>
+                    <div><span class="mr-15">报修人员:</span>蔡文姬</div>
+                    <div><span class="mr-15">联系电话:</span>137562314569</div>
+                    <div><span class="mr-15">故障地址:</span>南沙区23厂区</div>
+                    <div class="paied">
+                        <img src="../images/icon/icon_completed.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="orders">
+                <div class="clearfix">
+                    <div class="fl">报修时间:2017-8-7</div>
+                    <div class="fr">报修单号:HHH343656</div>
+                </div>
+                <div class="clearfix bgc-a9 fc-fff pd-10 radius">
+                    <div class="fl">厂区报修</div>
+                    <div class="fr">驳回</div>
+                </div>
+                <div class="detail">
+                    <div><span class="mr-15">报修项目:</span>电/电冰箱</div>
+                    <div><span class="mr-15">报修人员:</span>蔡文姬</div>
+                    <div><span class="mr-15">联系电话:</span>137562314569</div>
+                    <div><span class="mr-15">故障地址:</span>南沙区23厂区</div>
+                    <div class="paied">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="weui-tab-item approve orderList" id="tab3">
+            <div class="orders">
+                <div class="clearfix">
+                    <div class="fl">报修时间:2017-8-7</div>
+                    <div class="fr">报修单号:HHH343656</div>
+                </div>
+                <div class="clearfix bgc-00CCC1 fc-fff pd-10 radius">
+                    <div class="fl">厂区报修</div>
+                    <div class="fr">审批中</div>
+                </div>
+                <div class="detail">
+                    <div><span class="mr-15">报修项目:</span>电/电冰箱</div>
+                    <div><span class="mr-15">报修人员:</span>蔡文姬</div>
+                    <div><span class="mr-15">联系电话:</span>137562314569</div>
+                    <div><span class="mr-15">故障地址:</span>南沙区23厂区</div>
+                </div>
+            </div>
+            <div class="orders">
+                <div class="clearfix">
+                    <div class="fl">报修时间:2017-8-7</div>
+                    <div class="fr">报修单号:HHH343656</div>
+                </div>
+                <div class="clearfix bgc-00CCC1 fc-fff pd-10 radius">
+                    <div class="fl">厂区报修</div>
+                    <div class="fr">同意</div>
+                </div>
+                <div class="detail">
+                    <div><span class="mr-15">报修项目:</span>电/电冰箱</div>
+                    <div><span class="mr-15">报修人员:</span>蔡文姬</div>
+                    <div><span class="mr-15">联系电话:</span>137562314569</div>
+                    <div><span class="mr-15">故障地址:</span>南沙区23厂区</div>
+                    <div class="wait">待维修</div>
+                </div>
+            </div>
+            <div class="orders">
+                <div class="clearfix">
+                    <div class="fl">报修时间:2017-8-7</div>
+                    <div class="fr">报修单号:HHH343656</div>
+                </div>
+                <div class="clearfix bgc-a9 fc-fff pd-10 radius">
+                    <div class="fl">厂区报修</div>
+                    <div class="fr">同意</div>
+                </div>
+                <div class="detail">
+                    <div><span class="mr-15">报修项目:</span>电/电冰箱</div>
+                    <div><span class="mr-15">报修人员:</span>蔡文姬</div>
+                    <div><span class="mr-15">联系电话:</span>137562314569</div>
+                    <div><span class="mr-15">故障地址:</span>南沙区23厂区</div>
+                    <div class="paied">
+                        <img src="../images/icon/icon_completed.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="orders">
+                <div class="clearfix">
+                    <div class="fl">报修时间:2017-8-7</div>
+                    <div class="fr">报修单号:HHH343656</div>
+                </div>
+                <div class="clearfix bgc-a9 fc-fff pd-10 radius">
+                    <div class="fl">厂区报修</div>
+                    <div class="fr">驳回</div>
+                </div>
+                <div class="detail">
+                    <div><span class="mr-15">报修项目:</span>电/电冰箱</div>
+                    <div><span class="mr-15">报修人员:</span>蔡文姬</div>
+                    <div><span class="mr-15">联系电话:</span>137562314569</div>
+                    <div><span class="mr-15">故障地址:</span>南沙区23厂区</div>
+                    <div class="paied">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 底部菜单栏 -->
+    <div class="weui-tabbar">
+        <a href="javascript:;" rel-link="tab1" class="weui-tabbar__item weui-bar__item_on">
+            <div class="weui-tabbar__icon">
+                <img src="../images/icon/icon_pubrepaire_on.png" alt="" class="icon-on">
+                <img src="../images/icon/icon_pubrepaire.png" alt="">
+            </div>
+            <p class="weui-tabbar__label">宿舍报修</p>
+        </a>
+        <a href="javascript:;" rel-link="tab2" class="weui-tabbar__item">
+            <div class="weui-tabbar__icon">
+                <img src="../images/icon/icon_approver_on.png" alt="" class="icon-on">
+                <img src="../images/icon/icon_approver.png" alt="">
+            </div>
+            <p class="weui-tabbar__label">我的审批</p>
+        </a>
+        <a href="javascript:;" rel-link="tab3" class="weui-tabbar__item">
+            <div class="weui-tabbar__icon">
+                <img src="../images/icon/icon_record_on.png" alt="" class="icon-on">
+                <img src="../images/icon/icon_record.png" alt="">
+            </div>
+            <p class="weui-tabbar__label">申请记录</p>
+        </a>
+    </div>
+</div>
+<!-- 故障项目弹出层 -->
+<div class="weui-layer">
+    <div class="weui-mask weui-mask--visible"></div>
+    <div class="faultitems animated fadeInUp">
+        <div class="faultitemsTitle clearfix">故障项目选择<i class="weui-icon-cancel"></i></div>
+        <div class="bgc-f5 pd-15 font-30 selectedItem">
+            <div>已选<span class="fc-999">(点击即可删除)</span>:</div>
+            <ul class="clearfix">
+            </ul>
+        </div>
+        <div class="weui-menu">
+            <div class="weui-menu-item">
+                <div class="weui-menu-title">
+                    <div class="weui-item-title" rel-id="father1">电1<i class="weui-menu-arrow"></i></div>
+                    <div class="title-placeholder"></div>
+                </div>
+                <ul class="weui-item-list">
+                    <li><span class="fault-name" rel-id="a1">电工1</span><i class="weui-icon-success"></i></li>
+                    <li><span class="fault-name" rel-id="a2">电工2</span><i class="weui-icon-success"></i></li>
+                    <li><span class="fault-name" rel-id="a3">电工3</span><i class="weui-icon-success"></i></li>
+                    <li><span class="fault-name" rel-id="a4">电工4</span><i class="weui-icon-success"></i></li>
+                    <li><span class="fault-name" rel-id="a5">电工5</span><i class="weui-icon-success"></i></li>
+                    <li><span class="fault-name" rel-id="a6">电工6</span><i class="weui-icon-success"></i></li>
+                    <li><span class="fault-name" rel-id="a7">电工7</span><i class="weui-icon-success"></i></li>
+                    <li><span class="fault-name" rel-id="a8">电工8</span><i class="weui-icon-success"></i></li>
+                    <li><span class="fault-name" rel-id="a9">电工9</span><i class="weui-icon-success"></i></li>
+                    <li><span class="fault-name" rel-id="a10">电工10</span><i class="weui-icon-success"></i></li>
+                    <li><span class="fault-name" rel-id="a11">电工11</span><i class="weui-icon-success"></i></li>
+                </ul>
+            </div>
+            <div class="weui-menu-item">
+                <div class="weui-menu-title">
+                    <div class="weui-item-title">电2<i class="weui-menu-arrow"></i></div>
+                    <div class="title-placeholder"></div>
+                </div>
+                <ul class="weui-item-list">
+                    <li><span class="fault-name" rel-id="a1">电工1</span><i class="weui-icon-success"></i></li>
+                    <li><span class="fault-name" rel-id="a2">电工2</span><i class="weui-icon-success"></i></li>
+                    <li><span class="fault-name" rel-id="a3">电工3</span><i class="weui-icon-success"></i></li>
+                    <li><span class="fault-name" rel-id="a4">电工4</span><i class="weui-icon-success"></i></li>
+                    <li><span class="fault-name" rel-id="a5">电工5</span><i class="weui-icon-success"></i></li>
+                    <li><span class="fault-name" rel-id="a6">电工6</span><i class="weui-icon-success"></i></li>
+                    <li><span class="fault-name" rel-id="a7">电工7</span><i class="weui-icon-success"></i></li>
+                    <li><span class="fault-name" rel-id="a8">电工8</span><i class="weui-icon-success"></i></li>
+                    <li><span class="fault-name" rel-id="a9">电工9</span><i class="weui-icon-success"></i></li>
+                    <li><span class="fault-name" rel-id="a10">电工10</span><i class="weui-icon-success"></i></li>
+                    <li><span class="fault-name" rel-id="a11">电工11</span><i class="weui-icon-success"></i></li>
+                </ul>
+            </div>
+            <div class="weui-menu-item">
+                <div class="weui-menu-title">
+                    <div class="weui-item-title">电3<i class="weui-menu-arrow"></i></div>
+                    <div class="title-placeholder"></div>
+                </div>
+                <ul class="weui-item-list">
+                    <li><span class="fault-name" rel-id="a1">电工1</span><i class="weui-icon-success"></i></li>
+                    <li><span class="fault-name" rel-id="a2">电工2</span><i class="weui-icon-success"></i></li>
+                    <li><span class="fault-name" rel-id="a3">电工3</span><i class="weui-icon-success"></i></li>
+                    <li><span class="fault-name" rel-id="a4">电工4</span><i class="weui-icon-success"></i></li>
+                    <li><span class="fault-name" rel-id="a5">电工5</span><i class="weui-icon-success"></i></li>
+                    <li><span class="fault-name" rel-id="a6">电工6</span><i class="weui-icon-success"></i></li>
+                    <li><span class="fault-name" rel-id="a7">电工7</span><i class="weui-icon-success"></i></li>
+                    <li><span class="fault-name" rel-id="a8">电工8</span><i class="weui-icon-success"></i></li>
+                    <li><span class="fault-name" rel-id="a9">电工9</span><i class="weui-icon-success"></i></li>
+                    <li><span class="fault-name" rel-id="a10">电工10</span><i class="weui-icon-success"></i></li>
+                    <li><span class="fault-name" rel-id="a11">电工11</span><i class="weui-icon-success"></i></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="save"><a href="javascript:;" class="weui-btn weui-btn_normal">确认选择</a></div>
+</div>
+</body>
+</html>
+<script src="../js/jquery.js"></script>
+<script src="../js/swiper.min.js"></script>
+<script src="../js/global.js"></script>
+<!-- <script src="../js/dormitory.js"></script> -->
+<script type="text/javascript">
+$('.select').click(function(){
+    $.actions({
+        type: 'radio',
+        actions:[
+            {
+                text: '厂区报修',
+                onClick: function(){
+                    $('.select').html('厂区报修');
+                    $.closeActions();
+                }
+            },
+            {
+                text: '食堂报修',
+                onClick: function(){
+                    $('.select').html('食堂报修');
+                    $.closeActions();
+                }
+            },
+            {
+                text: '办公区报修',
+                onClick: function(){
+                    $('.select').html('办公区报修');
+                    $.closeActions();
+                }
+            },
+            {
+                text: '公共区报修',
+                onClick: function(){
+                    $('.select').html('公共区报修');
+                    $.closeActions();
+                }
+            },
+            {
+                text: '前台报修',
+                onClick: function(){
+                    $('.select').html('前台报修');
+                    $.closeActions();
+                }
+            },
+            {
+                text: '前台报修',
+                onClick: function(){
+                    $('.select').html('前台报修');
+                    $.closeActions();
+                }
+            },
+            {
+                text: '前台报修',
+                onClick: function(){
+                    $('.select').html('前台报修');
+                    $.closeActions();
+                }
+            },
+        ],
+    })
+})
+// $('.selectApprovers').click(function(){
+//     var titleHtml = '<div class="clearfix"><span class="weui-actionsheet_cancel">取消</span><span class="weui-actionsheet_confirm">确认</span></div>';
+//     var items = [];
+//     $.each($('.selectedApprovers').find('.itemTxt'),function(index,item){
+//         items.push($(item).attr('rel-txt'));
+//     })
+//     $.actions({
+//         title: titleHtml,
+//         actions:[
+//             {
+//                 text: '<span class="itemText" rel-text="露娜">露娜</span><i class="weui-icon-success"></i>',
+//                 className: "approverItem",
+//                 onClick: function(event){
+//                     if($(event.target).hasClass('approverItem')){
+//                         $(event.target).toggleClass('selected');
+//                         getApprover($(event.target),items)
+//                     }else{
+//                         $(event.target).parent().toggleClass('selected');
+//                         getApprover($(event.target).parent(),items);
+//                     }
+//                 }
+//             },
+//             {
+//                 text: '<span class="itemText" rel-text="干将莫邪">干将莫邪</span><i class="weui-icon-success"></i>',
+//                 className: "approverItem",
+//                 onClick: function(event){
+//                     if($(event.target).hasClass('approverItem')){
+//                         $(event.target).toggleClass('selected');
+//                         getApprover($(event.target),items)
+//                     }else{
+//                         $(event.target).parent().toggleClass('selected');
+//                         getApprover($(event.target).parent(),items);
+//                     }
+//                 }
+//             },
+//             {
+//                 text: '<span class="itemText" rel-text="程咬金">程咬金</span><i class="weui-icon-success"></i>',
+//                 className: "approverItem",
+//                 onClick: function(event){
+//                     if($(event.target).hasClass('approverItem')){
+//                         $(event.target).toggleClass('selected');
+//                         getApprover($(event.target),items)
+//                     }else{
+//                         $(event.target).parent().toggleClass('selected');
+//                         getApprover($(event.target).parent(),items);
+//                     }
+//                 }
+//             },
+//             {
+//                 text: '<span class="itemText" rel-text="诸葛亮">诸葛亮</span><i class="weui-icon-success"></i>',
+//                 className: "approverItem",
+//                 onClick: function(event){
+//                     if($(event.target).hasClass('approverItem')){
+//                         $(event.target).toggleClass('selected');
+//                         getApprover($(event.target),items)
+//                     }else{
+//                         $(event.target).parent().toggleClass('selected');
+//                         getApprover($(event.target).parent(),items);
+//                     }
+//                 }
+//             },
+//             {
+//                 text: '<span class="itemText" rel-text="蔡文姬">蔡文姬</span><i class="weui-icon-success"></i>',
+//                 className: "approverItem",
+//                 onClick: function(event){
+//                     if($(event.target).hasClass('approverItem')){
+//                         $(event.target).toggleClass('selected');
+//                         getApprover($(event.target),items)
+//                     }else{
+//                         $(event.target).parent().toggleClass('selected');
+//                         getApprover($(event.target).parent(),items);
+//                     }
+//                 }
+//             },
+//             {
+//                 text: '<span class="itemText" rel-text="鲁班七号">鲁班七号</span><i class="weui-icon-success"></i>',
+//                 className: "approverItem",
+//                 onClick: function(event){
+//                     if($(event.target).hasClass('approverItem')){
+//                         $(event.target).toggleClass('selected');
+//                         getApprover($(event.target),items)
+//                     }else{
+//                         $(event.target).parent().toggleClass('selected');
+//                         getApprover($(event.target).parent(),items);
+//                     }
+//                 }
+//             },
+//             {
+//                 text: '<span class="itemText" rel-text="后裔">后裔</span><i class="weui-icon-success"></i>',
+//                 className: "approverItem",
+//                 onClick: function(event){
+//                     if($(event.target).hasClass('approverItem')){
+//                         $(event.target).toggleClass('selected');
+//                         getApprover($(event.target),items)
+//                     }else{
+//                         $(event.target).parent().toggleClass('selected');
+//                         getApprover($(event.target).parent(),items);
+//                     }
+//                 }
+//             },
+//         ],
+//         cancel: false,
+//         confirm: function(){
+//             if(items.length == 0){
+//                 $.toast("请选择审批人", "forbidden");
+//                 // $('.selectedApprovers').css({'border-top':'none'});
+//             }else{
+//                 //$('.selectedApprovers').css({'border-top':'1px solid #D9D9D9'})
+//                 $.closeActions();
+//             }
+//         }
+//     })
+//     if(items.length == 0){
+
+//     }
+// })
+function getApprover(ele,arr) {
+    var approver = '';
+    var items = arr || [];
+    if($(ele).hasClass('selected')){
+        approver = $(ele).find('.itemText').attr('rel-text');
+        items.push(approver);
+    }else{
+        var approverIndex = '';
+        $.each(items,function(index,item){
+            if(item == approver){
+                approverIndex = index;
+            }
+        });
+        items.splice(approverIndex,1);
+    }
+    return items;
+}
+//底部菜单栏切换
+    $('.weui-tabbar').on('click','.weui-tabbar__item',function(){
+        $('.weui-tabbar__item').removeClass('weui-bar__item_on');
+        $(this).addClass('weui-bar__item_on');
+        var tabId = $(this).attr('rel-link');
+        $('.weui-tab-item').removeClass('weui-tab-item-active')
+        $(`#${tabId}`).addClass('weui-tab-item-active');
+        // if(tabId == 'tab2'){
+        //     getOrdersList(0,function(){
+        //         $('.isLoading').hide();
+        //     });
+        // }
+    })
+
+//更改电话号码
+    $('.clickPhone').click(function(){
+        var phone = $('#phone').attr('rel-data');
+        var new_phone = clickPhone(phone);
+        if(new_phone != phone){
+            $('#phone').html(new_phone); //更改页面文本值
+            $('#phone').attr({'rel-data':new_phone});
+            $('input[name="contact_phone]').val(new_phone); //表单提交字段
+        }
+    });
+
+    //点击选择故障项目
+    $('.clickFault').click(function(){
+        $('.weui-layer').addClass('weui-layer-on');
+    });
+
+    //关闭选择故障项目弹出层
+    $('.faultitemsTitle .weui-icon-cancel').click(function(){
+        $('.weui-layer').removeClass('weui-layer-on');
+    })
+
+    selectItem(); //选择故障项目
+
+    //点击选择故障项目弹出层确认按钮
+    $('#saveItem').click(function(){
+        if(selectedItems.length == 0){
+            $.toast("请选择项目", "forbidden");
+        }else{
+            $('.weui-layer').removeClass('weui-layer-on');
+            $('input[name="fault_items"]').val(selectedItems);
+            $('.clickFault').html(selectedItems.length+'/'+itemNum);
+        }
+    })
+//选择故障项目
+function selectItem() {
+    //点击项目大项展开/收起小项
+    $('.weui-menu').on('click','.weui-menu-title',function(){
+        $(this).parent().toggleClass('selected');
+        if(!$(this).hasClass('selected')){
+            $(this).find('weui-menu-title').removeClass('fixed');
+            $(this).find('.weui-item-title').css({'top':0});
+        }
+    });
+    //在列表中点击选择/取消选择小项
+    $('.weui-menu').on('click','.weui-menu-item li',function(){
+        $(this).toggleClass('selected');
+
+        var faultName = $(this).find('.fault-name').html();
+        var faultId = $(this).find('.fault-name').attr('rel-id');
+        var fatherId = $(this).parent().siblings().children('.weui-item-title').attr('rel-id');
+
+        if($(this).hasClass('selected')){ //点击选择
+            $('.selectedItem ul').append(`<li id="${faultId}" rel-fatherId="${fatherId}">${faultName}</li>`); //在已选栏中添加该小项
+            selectedItems.push(faultId);
+        }else{ //取消选择
+            $(`#${faultId}`).remove(); //在已选栏中删除该小项
+            //删除selectedItems中该小项
+            var itemIndex = '';
+            $.each(selectedItems,function(index,item){
+                if(item == faultId){
+                    itemIndex = index;
+                }
+            })
+            selectedItems.splice(itemIndex,1);
+        }
+    })
+    //在已选栏中点击取消选择小项
+    $('.selectedItem > ul').on('click','li',function(){
+        var fatherId = $(this).attr('rel-fatherId'); //所属大项id
+        var itemId = $(this).attr('id'); //该小项id
+        var items = $('.weui-menu .weui-menu-item');
+        $.each(items,(index,item)=>{
+            var titleId = $(item).find('.weui-item-title').attr('rel-id'); //大项id
+            if(titleId==fatherId){ //匹配小项所属的大项
+                var itemList = $(item).find('.weui-item-list > li.selected');
+                $.each(itemList,(index,item)=>{
+                    var secondItemId = $(item).find('.fault-name').attr('rel-id');
+                    if(secondItemId == itemId){
+                        $(item).removeClass('selected');
+                    }
+                })
+            }
+        })
+        $(this).remove();
+        //删除selectedItems中该小项
+        var itemIndex = '';
+        $.each(selectedItems,function(index,item){
+            if(item == itemId){
+                itemIndex = index;
+            }
+        })
+        selectedItems.splice(itemIndex,1);
+    })
+}
+$('.orderList').on('click','.orders',function(){
+        var orderId = $(this).attr('rel-data');
+        window.location.href='../views/pubrepaireOrderDtl.html?'+orderId;
+    })
+
+$('.save').click(function(){
+    $.toast("提交成功");
+})
+
+$('#selectApprovers').click(function(){
+        $.actions({
+            type: 'radio',
+            actions: [
+                {
+                    text: "项羽",
+                    onClick: function() {
+                        $('#selectApprovers').html("项羽")
+                    }
+                },
+                {
+                    text: "诸葛亮",
+                    onClick: function() {
+                        $('#selectApprovers').html("诸葛亮")
+                    }
+                },
+                {
+                    text: "钟馗",
+                    onClick: function() {
+                        $('#selectApprovers').html("钟馗")
+                    }
+                },
+                {
+                    text: "大乔",
+                    onClick: function() {
+                        $('#selectApprovers').html("大乔")
+                    }
+                },
+                {
+                    text: "小乔",
+                    onClick: function() {
+                        $('#selectApprovers').html("小乔")
+                    }
+                },
+                {
+                    text: "鲁班七号",
+                    onClick: function() {
+                        $('#selectApprovers').html("鲁班七号")
+                    }
+                },
+                {
+                    text: "狄仁杰",
+                    onClick: function() {
+                        $('#selectApprovers').html("狄仁杰")
+                    }
+                },
+                {
+                    text: "周庄",
+                    onClick: function() {
+                        $('#selectApprovers').html("周庄")
+                    }
+                },
+                {
+                    text: "黄忠",
+                    onClick: function() {
+                        $('#selectApprovers').html("黄忠")
+                    }
+                },
+            ]
+        });
+    })
+</script>

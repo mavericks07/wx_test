@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>订水</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="../css/weui.css">
+    <link rel="stylesheet" href="../css/animate.css">
+    <link rel="stylesheet" href="../css/swiper.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/dormitory.css">
+    <style type="text/css">
+        .sendMethod .weui-icon-circle{
+            display: inline-block;
+        }
+        .sendMethod .weui-icon-success,
+        .sendMethod input{
+            display: none;
+        }
+        .sendMethod.selected .weui-icon-success{
+            display: inline-block;
+        }
+        .sendMethod.selected .weui-icon-circle{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="weui-tab">
+    <div class="weui-tab-container pb-100">
+        <div class="weui-tab-item weui-tab-item-active overflow-auto" id="tab1">
+            <div class="weui-cells">
+                <div class="weui-cell">
+                    <div class="weui-cell__hd"><label class="weui-label">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名:</label></div>
+                    <div class="weui-cell__bd"></div>
+                    <div class="weui-cell__ft" id="job_number"><input type="text" class="weui-input text-r" placeholder="请输入姓名" value="蔡文姬"></div>
+                </div>
+                <div class="weui-cell">
+                    <div class="weui-cell__hd"><label class="weui-label">联系电话:</label></div>
+                    <div class="weui-cell__bd"></div>
+                    <div class="weui-cell__ft" id="job_number"><input type="text" class="weui-input text-r" placeholder="请输入联系电话" value="15019642956"></div>
+                </div>
+                <div class="weui-cell">
+                    <div class="weui-cell__hd"><label class="weui-label">送水地址:</label></div>
+                    <div class="weui-cell__bd">
+                    </div>
+                    <div class="weui-cell__ft clickPhone" id="phone" rel-data=""><input type="text" class="weui-input text-r" placeholder="请输入配送地址(宿舍区域+楼号+宿舍号)" value="南沙宿舍1区2号楼501"></div>
+                </div>
+            </div>
+            <div class="bgc-f5 h-15"></div>
+            <div class="font-30 pd-15 mt-15">
+                <span class="mr-15">数&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;量:</span>
+                <i class="weui-icon-minus"></i>
+                <input type="number" class="weui-input border w-100 text-c mr-15 ml-15" value="0" name="num">
+                <i class="weui-icon-plus"></i>
+            </div>
+            <div class="font-30 pd-15 mt-15">
+                <span class="mr-15">配送方式:</span>
+                <span class="sendMethod mr-15">
+                    <label for="typeSelf"><i class="weui-icon-circle"></i><i class="weui-icon-success"></i>自提</label>
+                    <input type="radio" name='type' id="typeSelf">
+                </span>
+                <span class="sendMethod mr-15 selected">
+                    <label for="typeSend"><i class="weui-icon-circle"></i><i class="weui-icon-success"></i>配送</label>
+                    <input type="radio" name='type' id="typeSend">
+                </span>
+            </div>
+            <div class="font-30 pd-15 mt-15" id="sendTime">
+                <span class="mr-15">配送时间:</span>
+                <span class="border radius pd-15" id="selectTiem">晚上(18：00-20：00)</span>
+            </div>
+            <div class="font-30 pd-15 mt-15">
+                <div class="font-36 fw-b">温馨提示:</div>
+                <div>请提前一天预定。物业上班是9:00-20:00,需要自提水的人员需要在物业上班时间来取,最好两日内来取走;送水上门请确定配送时间段内有人签收。</div>
+            </div>
+            <div class="save"><a href="javascript:;" class="weui-btn weui-btn_normal">提交申请</a></div>
+        </div>
+        <div class="weui-tab-item overflow-auto" id="tab2">
+            <div class="orders">
+                <div class="clearfix bgc-20bae6 fc-fff pd-10 radius">
+                    <div class="fl">2017-05-24</div>
+                    <div class="fr">待派单</div>
+                </div>
+                <div class="detail">
+                    <div><span class="mr-15">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名:</span>李小龙</div>
+                    <div><span class="mr-15">电&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;话:</span>137562314569</div>
+                    <div><span class="mr-15">地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址:</span>南沙区23厂区</div>
+                    <div><span class="mr-15">数&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;量:</span>5</div>
+                    <div><span class="mr-15">配送方式:</span>配送</div>
+                    <div><span class="mr-15">配送时间:</span>2017-05-25 (10:00-12:00)</div>
+                    <div class="paied">
+                    </div>
+                </div>
+            </div>
+            <div class="orders">
+                <div class="clearfix bgc-20bae6 fc-fff pd-10 radius">
+                    <div class="fl">2017-05-24</div>
+                    <div class="fr">待派单</div>
+                </div>
+                <div class="detail">
+                    <div><span class="mr-15">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名:</span>李小龙</div>
+                    <div><span class="mr-15">电&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;话:</span>137562314569</div>
+                    <div><span class="mr-15">地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址:</span>南沙区23厂区</div>
+                    <div><span class="mr-15">数&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;量:</span>5</div>
+                    <div><span class="mr-15">配送方式:</span>自提</div>
+                    <div class="paied">
+                    </div>
+                </div>
+            </div>
+            <div class="orders">
+                <div class="clearfix bgc-a9 fc-fff pd-10 radius">
+                    <div class="fl">2017-05-24</div>
+                    <div class="fr">已完成</div>
+                </div>
+                <div class="detail">
+                    <div><span class="mr-15">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名:</span>李小龙</div>
+                    <div><span class="mr-15">电&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;话:</span>137562314569</div>
+                    <div><span class="mr-15">地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址:</span>南沙区23厂区</div>
+                    <div><span class="mr-15">数&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;量:</span>5</div>
+                    <div><span class="mr-15">配送方式:</span>配送</div>
+                    <div><span class="mr-15">配送时间:</span>2017-05-25 (10:00-12:00)</div>
+                    <div class="paied">
+
+                    </div>
+                </div>
+            </div>
+            <div class="orders">
+                <div class="clearfix bgc-a9 fc-fff pd-10 radius">
+                    <div class="fl">2017-05-24</div>
+                    <div class="fr">已取消</div>
+                </div>
+                <div class="detail">
+                    <div><span class="mr-15">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名:</span>李小龙</div>
+                    <div><span class="mr-15">电&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;话:</span>137562314569</div>
+                    <div><span class="mr-15">地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址:</span>南沙区23厂区</div>
+                    <div><span class="mr-15">数&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;量:</span>5</div>
+                    <div><span class="mr-15">配送方式:</span>配送</div>
+                    <div><span class="mr-15">配送时间:</span>2017-05-25 (10:00-12:00)</div>
+                    <div class="paied">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 底部菜单栏 -->
+    <div class="weui-tabbar">
+        <a href="javascript:;" rel-link="tab1" class="weui-tabbar__item weui-bar__item_on">
+            <div class="weui-tabbar__icon">
+                <img src="../images/icon/icon_water_on.png" alt="" class="icon-on">
+                <img src="../images/icon/icon_water.png" alt="">
+            </div>
+            <p class="weui-tabbar__label">定水</p>
+        </a>
+        <a href="javascript:;" rel-link="tab2" class="weui-tabbar__item">
+            <div class="weui-tabbar__icon">
+                <img src="../images/icon/icon_record_on.png" alt="" class="icon-on">
+                <img src="../images/icon/icon_record.png" alt="">
+            </div>
+            <p class="weui-tabbar__label">报修记录</p>
+        </a>
+    </div>
+</div>
+</body>
+</html>
+<script src="../js/jquery.js"></script>
+<script src="../js/swiper.min.js"></script>
+<script src="../js/global.js"></script>
+<!-- <script src="../js/dormitory.js"></script> -->
+<script type="text/javascript">
+    //底部菜单栏切换
+    $('.weui-tabbar').on('click','.weui-tabbar__item',function(){
+        $('.weui-tabbar__item').removeClass('weui-bar__item_on');
+        $(this).addClass('weui-bar__item_on');
+        var tabId = $(this).attr('rel-link');
+        $('.weui-tab-item').removeClass('weui-tab-item-active')
+        $(`#${tabId}`).addClass('weui-tab-item-active');
+        // if(tabId == 'tab2'){
+        //     getOrdersList(0,function(){
+        //         $('.isLoading').hide();
+        //     });
+        // }
+    })
+    //减法
+    $('.weui-icon-minus').click(function(){
+        var inputVal = $('input[name=num]').val();
+        if(inputVal == 0){
+            return;
+        }else{
+            inputVal--;
+            $('input[name=num]').val(inputVal);
+        }
+    })
+    //加法
+    $('.weui-icon-plus').click(function(){
+        var inputVal = $('input[name=num]').val();
+        inputVal++;
+        $('input[name=num]').val(inputVal);
+    })
+    //配送
+    $('.sendMethod').on('click','label',function(){
+        $('.sendMethod').toggleClass('selected');
+        if($(this).siblings('input').attr('id') == 'typeSend'){
+            $('#sendTime').show();
+        }else{
+            $('#sendTime').hide();
+        }
+    })
+    //配送时间
+    $('#selectTiem').click(function(){
+        $.actions({
+            type: 'radio',
+            actions: [
+                {
+                    text: "上午(9:00-12:00)",
+                    onClick: function() {
+                        $('#selectTiem').html("上午(9:00-12:00)")
+                    }
+                },
+                {
+                    text: "下午(14:00-18:00)",
+                    onClick: function() {
+                        $('#selectTiem').html("下午(14:00-18:00)")
+                    }
+                },
+                {
+                    text: "晚上(18:00-20:00)",
+                    onClick: function() {
+                        $('#selectTiem').html("晚上(18:00-20:00)")
+                    }
+                }
+            ]
+        });
+    })
+    $('.save').click(function(){
+    $.toast("提交成功");
+})
+</script>
